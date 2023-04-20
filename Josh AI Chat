@@ -1,0 +1,10 @@
+<script src="https://bard.ai/bard.js"></script>
+
+<div id="bard"></div>
+
+<script>
+var bard = new Bard({
+  element: document.getElementById("bard"),
+  name: "Josh",
+});
+</script>
