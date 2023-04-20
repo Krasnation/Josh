@@ -8,3 +8,19 @@ var bard = new Bard({
   name: "Josh",
 });
 </script>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Chatbot</title>
+</head>
+<body>
+  <div id="bard"></div>
+  <script>
+    var bard = {
+      element: document.getElementById("bard"),
+      name: "Josh",
+    };
+  </script>
+</body>
+</html>
