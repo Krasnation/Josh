@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Alien Website</title>
+</head>
+<body>
+  <div id="aliens"></div>
+  <script>
+    var aliens = [];
+    
+    for (var i = 0; i < 10; i++) {
+      aliens.push({
+        position: {
+          x: Math.random() * window.innerWidth,
+          y: Math.random() * window.innerHeight,
+        },
+        velocity: {
+          x: Math.random() - 0.5,
+          y: Math.random() - 0.5,
+        },
+        size: Math.random() * 100,
+        color: `hsl(${Math.random() * 360},55%,55%)`,
+      });
+    }
+    
+    requestAnimationFrame(function a() {
+      aliens.forEach(function(alien) {
+        alien.position.x += alien.velocity.x;
+        alien.position.y += alien.velocity.y;
+        if (alien.position.x < 0 || alien.position.x > window.innerWidth) {
+          alien.velocity.x *= -1;
+        }
+        if (alien.position.y < 0 || alien.position.y > window.innerHeight) {
+          alien.velocity.y *= -1;
+        }
+        document.getElementById("aliens").innerHTML += `
+          <div style="
+            width: ${alien.size}px;
+            height: ${alien.size}px;
+            background-color: ${alien.color};
+            position: absolute;
+            left: ${alien.position.x}px;
+            top: ${alien.position.y}px;
+         "></div>
+        `;
+      });
+      requestAnimationFrame(a);
+    });
+  </script>
+</body>
+</html>
